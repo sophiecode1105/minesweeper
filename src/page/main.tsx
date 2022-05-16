@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import smile from '../assets/smile.png';
-import { updateDifficulty } from '../state/gameDifficulty';
+import { changeGameDifficulty } from '../state/game';
 import { useAppDispatch } from '../state/hook';
 import { RootState } from '../state/store';
 import { GameDifficulty } from '../types/difficulty';
@@ -86,7 +84,7 @@ const TimerBox = styled(CountBox)``;
 const ResetButton = styled.button`
   width: 35px;
   height: 35px;
-  background: url('img/smile.png') no-repeat center / 90%;
+  background: url('assets/smile.png') no-repeat center / 90%;
   border: 3px solid #666;
   border-top-color: #f6f6f6;
   border-left-color: #f6f6f6;
@@ -96,7 +94,7 @@ const ResetButton = styled.button`
     border: 3px solid #666;
     border-bottom-color: #f6f6f6;
     border-right-color: #f6f6f6;
-    background: url('img/curious.png') no-repeat center / 90%;
+    background: url('assets/curious.png') no-repeat center / 90%;
   }
 `;
 
@@ -133,12 +131,12 @@ const ButtonWrap = styled.div`
 
 const Main = () => {
   const dispatch = useAppDispatch();
-  const currenDifficulty = useSelector((state: RootState) => state.gameDifficulty);
+  const currenDifficulty = useSelector((state: RootState) => state.game.difficulty);
 
   const difficulties = [BEGINNER, INTERMEDIATE, EXPERT];
 
   const changeGameLevel = (difficulty: GameDifficulty) => {
-    dispatch(updateDifficulty({ difficulty }));
+    dispatch(changeGameDifficulty({ difficulty }));
   };
 
   return (

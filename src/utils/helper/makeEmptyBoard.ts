@@ -1,4 +1,10 @@
-export function makeEmptyBoard(height: number, width: number, mines: number): Board {
+import { Board } from '../../types/board';
+import { GameDifficulty } from '../../types/difficulty';
+
+export function makeEmptyBoard(difficulty: GameDifficulty): Board {
+  const { values } = difficulty;
+  const [height, width, mines] = values;
+
   let newBlocks = new Array(height);
   for (let row = 0; row < height; row++) {
     for (let col = 0; col < width; col++) {

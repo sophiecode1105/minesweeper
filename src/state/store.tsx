@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import gameDifficultyReducer from './gameDifficulty';
+import gameyReducer from './game';
 
 export const store = configureStore({
   reducer: {
-    gameDifficulty: gameDifficultyReducer,
+    game: gameyReducer,
   },
 });
 

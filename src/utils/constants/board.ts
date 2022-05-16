@@ -1,3 +1,6 @@
 import { makeEmptyBoard } from '../helper/makeEmptyBoard';
+import { BEGINNER, INTERMEDIATE, EXPERT } from './difficulty';
 
-export const DEFAULT_BOARD = makeEmptyBoard(9, 9, 10);
+export const EMPTY_BEGINNER_BOARD = makeEmptyBoard(BEGINNER);
+export const EMPTY_INTERMEDIATE_BOARD = makeEmptyBoard(INTERMEDIATE);
+export const EMPTY_EXPERT_BOARD = makeEmptyBoard(EXPERT);
