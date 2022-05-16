@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import smile from '../assets/smile.png';
+import { updateDifficulty } from '../state/gameDifficulty';
+import { useAppDispatch } from '../state/hook';
+import { RootState } from '../state/store';
+import { GameDifficulty } from '../types/difficulty';
+import { BEGINNER, EXPERT, INTERMEDIATE } from '../utils/constants/difficulty';
 
 const Container = styled.div`
   display: flex;
@@ -126,29 +132,19 @@ const ButtonWrap = styled.div`
 `;
 
 const Main = () => {
-  const levels = ['Biginner', 'Intermediate', 'Expert'];
-  const [currentWidth, setCurrentWidth] = useState<string>('266px');
-  const [currentLevel, setCurrentLevel] = useState<string>('beginner');
-  const [status, setStatus] = useState<string>('img/smile.png');
+  const dispatch = useAppDispatch();
+  const currenDifficulty = useSelector((state: RootState) => state.gameDifficulty);
 
-  useEffect(() => {
-    if (currentLevel === 'Biginner') {
-      setCurrentWidth('266px');
-    } else if (currentLevel === 'Intermediate') {
-      setCurrentWidth('455px');
-    } else {
-      setCurrentWidth('810px');
-    }
-  }, [currentLevel]);
+  const difficulties = [BEGINNER, INTERMEDIATE, EXPERT];
 
-  const changeGanmeLevel = (level: string) => {
-    setCurrentLevel(level);
+  const changeGameLevel = (difficulty: GameDifficulty) => {
+    dispatch(updateDifficulty({ difficulty }));
   };
 
   return (
     <Container>
       <GameName>Minesweeper</GameName>
-      <BoardContainer currentWidth={currentWidth}>
+      <BoardContainer currentWidth={currenDifficulty.width}>
         <GameBox>
           <ControlBox>
             <CountBox>
@@ -169,14 +165,14 @@ const Main = () => {
         </GameBox>
       </BoardContainer>
       <ButtonWrap>
-        {levels.map((level) => {
+        {difficulties.map((difficulty) => {
           return (
             <Button
               onClick={() => {
-                changeGanmeLevel(level);
+                changeGameLevel(difficulty);
               }}
             >
-              {level}
+              {difficulty.name}
             </Button>
           );
         })}

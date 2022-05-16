@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import gameDifficultyReducer from './gameDifficulty';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    gameDifficulty: gameDifficultyReducer,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
