@@ -6,12 +6,20 @@ import OptionButton from '../components/OptionButton';
 
 import { RootState } from '../state/store';
 import { GameContainer, ButtonWrap, Container, GameBox, GameName } from '../style/game';
+import { BEGINNER_BOARD, EXPERT_BOARD, INTERMEDIATE_BOARD } from '../utils/constants/board';
 import { BEGINNER, EXPERT, INTERMEDIATE } from '../utils/constants/difficulty';
 
 const Game = () => {
   const currenDifficulty = useSelector((state: RootState) => state.game.difficulty);
 
-  const difficulties = [BEGINNER, INTERMEDIATE, EXPERT];
+  const difficulties = [
+    {
+      difficulty: BEGINNER,
+      board: BEGINNER_BOARD,
+    },
+    { difficulty: INTERMEDIATE, board: INTERMEDIATE_BOARD },
+    { difficulty: EXPERT, board: EXPERT_BOARD },
+  ];
 
   return (
     <Container>

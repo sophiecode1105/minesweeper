@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { GameDifficulty } from '../types/difficulty';
+import { DifficultyBoard, GameDifficulty } from '../types/difficulty';
 import { GameStatus } from '../types/status';
-import { EMPTY_BEGINNER_BOARD } from '../utils/constants/board';
+import { BEGINNER_BOARD, EMPTY_BEGINNER_BOARD, EXPERT_BOARD, INTERMEDIATE_BOARD } from '../utils/constants/board';
 import { BEGINNER } from '../utils/constants/difficulty';
 import { PLAYING } from '../utils/constants/status';
 
@@ -9,7 +9,9 @@ const initialState = {
   initialized: false,
   status: PLAYING,
   difficulty: BEGINNER,
-  board: EMPTY_BEGINNER_BOARD,
+  board: BEGINNER_BOARD,
+  score: 0,
+  time: 0,
 };
 
 export const gameStatusSlice = createSlice({
@@ -19,8 +21,10 @@ export const gameStatusSlice = createSlice({
     changeGameStatus: (state, action: PayloadAction<{ status: GameStatus }>) => {
       state.status = action.payload.status;
     },
-    changeGameDifficulty: (state, action: PayloadAction<{ difficulty: GameDifficulty }>) => {
-      state.difficulty = action.payload.difficulty;
+    changeGameDifficulty: (state, action: PayloadAction<{ difficulty: DifficultyBoard }>) => {
+      const { difficulty, board } = action.payload.difficulty;
+      state.difficulty = difficulty;
+      state.board = board;
     },
   },
 });
