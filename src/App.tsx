@@ -1,11 +1,11 @@
 import GlobalStyles from './GlobalStyles';
-import Main from './page/main';
+import Game from './page/Game';
 
 const App = () => {
   return (
     <>
       <GlobalStyles />
-      <Main />;
+      <Game />;
     </>
   );
 };
