@@ -7,8 +7,10 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         
     }
-    html {
+    html, body {
         background-color: black;
+        font-family: 'Press Start 2P', cursive;
+        text-align: center;
     
     }   
 
