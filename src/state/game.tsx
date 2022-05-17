@@ -1,15 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { BoardBlock, DifficultyBoard, GameStatus, Game, MineCoordinates } from '../types/game';
-import {
-  BEGINNER_BOARD,
-  EMPTY_BEGINNER_BOARD,
-  EXPERT_BOARD,
-  INTERMEDIATE_BOARD,
-  MINI_TEST_BOARD,
-  MINI_BOARD,
-} from '../utils/constants/board';
-import { BEGINNER, MINI } from '../utils/constants/difficulty';
-import { PLAYING, WIN } from '../utils/constants/status';
+import { BEGINNER_BOARD } from '../utils/constants/board';
+import { BEGINNER } from '../utils/constants/difficulty';
+import { PLAYING } from '../utils/constants/status';
 import { fillMines, fillNormalBlocks } from '../utils/helper/fillBlocks';
 import { makeEmptyBoard } from '../utils/helper/makeEmptyBoard';
 

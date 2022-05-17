@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-import styled from 'styled-components';
 import { changeGameDifficulty } from '../state/game';
 import { useAppDispatch } from '../state/hook';
 import { Button, ButtonWrap } from '../style/game';
