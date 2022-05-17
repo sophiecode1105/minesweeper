@@ -4,7 +4,15 @@ import { GameBoard } from '../style/game';
 import { Blocks, gametype } from '../types/game';
 import Block from './Block';
 
-const Board = ({ gameBoard, currentWidth }: { gameBoard: Blocks[][]; currentWidth: string }) => {
+const Board = ({
+  blockHandler,
+  gameBoard,
+  currentWidth,
+}: {
+  blockHandler: (isMine: boolean, row: number, col: number) => void;
+  gameBoard: Blocks[][];
+  currentWidth: string;
+}) => {
   console.log(gameBoard);
   return (
     <GameBoard>
@@ -12,7 +20,14 @@ const Board = ({ gameBoard, currentWidth }: { gameBoard: Blocks[][]; currentWidt
         return (
           <div style={{ display: 'flex', flexDirection: 'row' }}>
             {row.map((block, idx) => (
-              <Block block={block} cIdx={idx} key={idx} rIdx={ridx} currentWidth={currentWidth} />
+              <Block
+                block={block}
+                cIdx={idx}
+                key={idx}
+                rIdx={ridx}
+                currentWidth={currentWidth}
+                blockHandler={blockHandler}
+              />
             ))}
           </div>
         );

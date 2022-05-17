@@ -14,7 +14,7 @@ export const GameName = styled.h1`
   font-size: 25px;
 `;
 
-export interface widthProp {
+export interface BlockCustomProp {
   currentWidth: string;
 }
 
@@ -124,7 +124,7 @@ export const GameBoard = styled.div`
   color: black;
 `;
 
-export const GameBlock = styled.button<widthProp>`
+export const GameBlock = styled.button<BlockCustomProp>`
   width: ${(props) => props.currentWidth};
   /* color: rgb(235, 235, 235); */
   border: 2px solid #666;
@@ -132,6 +132,8 @@ export const GameBlock = styled.button<widthProp>`
   border-left-color: #f6f6f6;
   box-sizing: border-box;
   font-size: 18px;
+  /* width: 25px;
+  height: 25px; */
   cursor: pointer;
   font-family: 'Press Start 2P', cursive;
 `;

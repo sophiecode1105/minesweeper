@@ -1,6 +1,6 @@
-// 보드의 mines 만킁믜 지뢰 블록을 채워주는 함수
 import { Blocks, Board, MineCoordinates } from '../../types/game';
 
+// 보드의 mines 만킁믜 지뢰 블록을 채워주는 함수
 // 생성된 지뢰들의 좌표는 Board.mineCoordinate 에 저장됨 -> 저장이유: 이후에 게임오버시 지뢰가 심어진 부분을 전체화면에 보여주기위함.
 export const fillMines = (board: Board): Board => {
   let mineBlocks: MineCoordinates[] = [];
@@ -89,7 +89,7 @@ export function fillNormalBlocks(board: Board): Board {
 
 // 한 블록의 주변 블로들이 지뢰인지 카운티 해주는 헬퍼 함수
 // 최대 8개까지 카운팅
-function countSurroundingMines(blocks: Blocks[][], row: number, col: number): number {
+export function countSurroundingMines(blocks: Blocks[][], row: number, col: number): number {
   let mines = 0;
   let leftBound = col - 1 < 0 ? undefined : col - 1;
   let rightBound = col + 1 > blocks[row].length - 1 ? undefined : col + 1;

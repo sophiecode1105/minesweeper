@@ -26,7 +26,7 @@ export interface Board {
   blocks: Blocks[][];
 }
 
-export type MineCoordinates = [number, number];
+export type MineCoordinates = number[];
 
 export interface Blocks {
   isMine: boolean;

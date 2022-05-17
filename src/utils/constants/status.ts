@@ -6,11 +6,11 @@ export const PLAYING: GameStatus = {
 };
 
 export const DEAD: GameStatus = {
-  status: 'dead',
+  status: 'YOU LOST',
   img: 'img/dead.png',
 };
 
 export const WIN: GameStatus = {
-  status: 'win',
+  status: 'YOU WON',
   img: 'img/sunglass.png',
 };
