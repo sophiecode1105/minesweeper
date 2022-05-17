@@ -10,7 +10,10 @@ import { BEGINNER_BOARD, EXPERT_BOARD, INTERMEDIATE_BOARD } from '../utils/const
 import { BEGINNER, EXPERT, INTERMEDIATE } from '../utils/constants/difficulty';
 
 const Game = () => {
-  const currenDifficulty = useSelector((state: RootState) => state.game.difficulty);
+  const gameData = useSelector((state: RootState) => state.game);
+  const { initialized, board, status, difficulty, score, time } = gameData;
+
+  console.log('뭐꼬', gameData);
 
   const difficulties = [
     {
@@ -24,17 +27,13 @@ const Game = () => {
   return (
     <Container>
       <GameName>Minesweeper</GameName>
-      <GameContainer currentWidth={currenDifficulty.width}>
+      <GameContainer>
         <GameBox>
           <Display />
-          <Board />
+          <Board gameBoard={board.blocks} currentWidth={difficulty.width} />
         </GameBox>
       </GameContainer>
-      <ButtonWrap>
-        {difficulties.map((difficulty) => {
-          return <OptionButton difficulty={difficulty} />;
-        })}
-      </ButtonWrap>
+      <OptionButton difficulties={difficulties} />
     </Container>
   );
 };

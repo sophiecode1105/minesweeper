@@ -18,11 +18,10 @@ export interface widthProp {
   currentWidth: string;
 }
 
-export const GameContainer = styled.div<widthProp>`
+export const GameContainer = styled.div`
   color: #fff;
   border: 2px solid white;
   margin: 20px auto 50px auto;
-  width: ${(props) => props.currentWidth};
 `;
 
 export const GameBox = styled.div`
@@ -112,7 +111,7 @@ export const ControlBox = styled.div`
   }
 `;
 
-export const GameBoard = styled.table`
+export const GameBoard = styled.div`
   width: calc(100% - 15px);
   margin: auto;
   border: 3px solid #888;
@@ -123,4 +122,16 @@ export const GameBoard = styled.table`
   list-style: none;
   border-spacing: 0;
   color: black;
+`;
+
+export const GameBlock = styled.button<widthProp>`
+  width: ${(props) => props.currentWidth};
+  /* color: rgb(235, 235, 235); */
+  border: 2px solid #666;
+  border-top-color: #f6f6f6;
+  border-left-color: #f6f6f6;
+  box-sizing: border-box;
+  font-size: 18px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
 `;

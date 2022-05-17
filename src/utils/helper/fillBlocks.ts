@@ -1,6 +1,6 @@
-import { Blocks, Board, MineCoordinates } from '../../types/board';
-
 // 보드의 mines 만킁믜 지뢰 블록을 채워주는 함수
+import { Blocks, Board, MineCoordinates } from '../../types/game';
+
 // 생성된 지뢰들의 좌표는 Board.mineCoordinate 에 저장됨 -> 저장이유: 이후에 게임오버시 지뢰가 심어진 부분을 전체화면에 보여주기위함.
 export const fillMines = (board: Board): Board => {
   let mineBlocks: MineCoordinates[] = [];

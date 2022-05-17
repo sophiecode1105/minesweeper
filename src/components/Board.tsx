@@ -1,27 +1,22 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../state/store';
 import { GameBoard } from '../style/game';
+import { Blocks, gametype } from '../types/game';
 import Block from './Block';
 
-const Board = () => {
-  const gameBoard = useSelector((state: RootState) => state.game.board.blocks);
-
-  console.log('gameBoard', gameBoard);
-
+const Board = ({ gameBoard, currentWidth }: { gameBoard: Blocks[][]; currentWidth: string }) => {
+  console.log(gameBoard);
   return (
     <GameBoard>
-      <tbody>
-        {gameBoard.map((row) => {
-          console.log('row', row);
-          return (
-            <tr>
-              {row.map((block) => (
-                <Block block={block} />
-              ))}
-            </tr>
-          );
-        })}
-      </tbody>
+      {gameBoard.map((row, ridx) => {
+        return (
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            {row.map((block, idx) => (
+              <Block block={block} cIdx={idx} key={idx} rIdx={ridx} currentWidth={currentWidth} />
+            ))}
+          </div>
+        );
+      })}
     </GameBoard>
   );
 };

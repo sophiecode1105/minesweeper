@@ -1,4 +1,4 @@
-import { GameStatus } from '../../types/status';
+import { GameStatus } from '../../types/game';
 
 export const PLAYING: GameStatus = {
   status: 'playing',

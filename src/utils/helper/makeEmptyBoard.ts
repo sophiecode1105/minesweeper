@@ -1,5 +1,4 @@
-import { Board } from '../../types/board';
-import { GameDifficulty } from '../../types/difficulty';
+import { Board, GameDifficulty } from '../../types/game';
 
 //보드를 생성해주고 빈값이 들어있는 블록을 만드는 함수.
 export function makeEmptyBoard(difficulty: GameDifficulty): Board {
