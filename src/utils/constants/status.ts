@@ -2,15 +2,15 @@ import { GameStatus } from '../../types/game';
 
 export const PLAYING: GameStatus = {
   status: 'playing',
-  img: 'img/smile.png',
+  img: 'assets/smile.png',
 };
 
 export const DEAD: GameStatus = {
   status: 'YOU LOST',
-  img: 'img/dead.png',
+  img: 'assets/dead.png',
 };
 
 export const WIN: GameStatus = {
   status: 'YOU WON',
-  img: 'img/sunglass.png',
+  img: 'assets/sunglass.png',
 };

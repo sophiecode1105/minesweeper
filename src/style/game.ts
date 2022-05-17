@@ -14,10 +14,6 @@ export const GameName = styled.h1`
   font-size: 25px;
 `;
 
-export interface BlockCustomProp {
-  currentWidth: string;
-}
-
 export const GameContainer = styled.div`
   color: #fff;
   border: 2px solid white;
@@ -71,10 +67,14 @@ export const Button = styled.button`
 
 export const TimerBox = styled(CountBox)``;
 
-export const ResetButton = styled.button`
+export interface ImgUrlProp {
+  imgURL: string;
+}
+
+export const ResetButton = styled.button<ImgUrlProp>`
   width: 35px;
   height: 35px;
-  background: url('assets/smile.png') no-repeat center / 90%;
+  background: url(${(prop) => prop.imgURL}) no-repeat center / 90%;
   border: 3px solid #666;
   border-top-color: #f6f6f6;
   border-left-color: #f6f6f6;
@@ -112,9 +112,11 @@ export const ControlBox = styled.div`
 `;
 
 export const GameBoard = styled.div`
-  width: calc(100% - 15px);
+  /* width: calc(100% - 15px); */
   margin: auto;
   border: 3px solid #888;
+  border-right: 6px solid #888;
+  border-left: 6px solid #888;
   border-right-color: #f6f6f6;
   border-bottom-color: #f6f6f6;
   margin-top: 7px;
@@ -124,16 +126,23 @@ export const GameBoard = styled.div`
   color: black;
 `;
 
-export const GameBlock = styled.button<BlockCustomProp>`
-  width: ${(props) => props.currentWidth};
-  /* color: rgb(235, 235, 235); */
+interface ColorProp {
+  fontColor?: string;
+  backgroundColor?: string;
+  backgroundImg?: string;
+}
+export const GameBlock = styled.button<ColorProp>`
+  background-color: transparent;
+  color: ${(prop) => prop.fontColor};
+  background: url(${(prop) => prop.backgroundImg}) no-repeat center / 90%;
+  background-color: ${(prop) => prop.backgroundColor};
   border: 2px solid #666;
   border-top-color: #f6f6f6;
   border-left-color: #f6f6f6;
   box-sizing: border-box;
-  font-size: 18px;
-  /* width: 25px;
-  height: 25px; */
+  font-size: 8px;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
   font-family: 'Press Start 2P', cursive;
 `;

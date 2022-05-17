@@ -1,4 +1,4 @@
-import { Blocks, Board, MineCoordinates } from '../../types/game';
+import { BoardBlock, Board, MineCoordinates } from '../../types/game';
 
 // 보드의 mines 만킁믜 지뢰 블록을 채워주는 함수
 // 생성된 지뢰들의 좌표는 Board.mineCoordinate 에 저장됨 -> 저장이유: 이후에 게임오버시 지뢰가 심어진 부분을 전체화면에 보여주기위함.
@@ -11,7 +11,7 @@ export const fillMines = (board: Board): Board => {
     return [Math.round(Math.random() * height), Math.round(Math.random() * width)];
   };
   // 전달되는 보드의 해당 좌표에 지뢰를 심어주고, 해당 좌표를 저장해주는 헬퍼 함수
-  let insertMinesInPlace = (blocks: Blocks[][], row: number, col: number) => {
+  let insertMinesInPlace = (blocks: BoardBlock[][], row: number, col: number) => {
     // console.log(blocks, blocks[row], blocks[row][col]);
     if (!blocks || !blocks[row] || !blocks[row][col]) {
       return;
@@ -22,6 +22,7 @@ export const fillMines = (board: Board): Board => {
       col,
       surroundingMines: 0,
       clicked: false,
+      flagged: false,
     };
     newMineBlock.row = row;
     newMineBlock.col = col;
@@ -78,6 +79,7 @@ export function fillNormalBlocks(board: Board): Board {
         col,
         surroundingMines: 0,
         clicked: false,
+        flagged: false,
       };
       let sm = countSurroundingMines(blocks, row, col);
       newNormalBlock.surroundingMines = sm;
@@ -89,7 +91,7 @@ export function fillNormalBlocks(board: Board): Board {
 
 // 한 블록의 주변 블로들이 지뢰인지 카운티 해주는 헬퍼 함수
 // 최대 8개까지 카운팅
-export function countSurroundingMines(blocks: Blocks[][], row: number, col: number): number {
+export function countSurroundingMines(blocks: BoardBlock[][], row: number, col: number): number {
   let mines = 0;
   let leftBound = col - 1 < 0 ? undefined : col - 1;
   let rightBound = col + 1 > blocks[row].length - 1 ? undefined : col + 1;

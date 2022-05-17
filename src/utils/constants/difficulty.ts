@@ -1,19 +1,25 @@
 import { GameDifficulty } from '../../types/game';
 
+export const MINI: GameDifficulty = {
+  name: 'Beginner',
+  values: [2, 2, 1],
+  flags: 1,
+};
+
 export const BEGINNER: GameDifficulty = {
   name: 'Beginner',
   values: [9, 9, 10],
-  width: '11.1112%',
+  flags: 10,
 };
 
 export const INTERMEDIATE: GameDifficulty = {
   name: 'Intermediate',
   values: [16, 16, 40],
-  width: '6.25%',
+  flags: 40,
 };
 
 export const EXPERT: GameDifficulty = {
   name: 'Expert',
   values: [16, 30, 99],
-  width: '3.3334%',
+  flags: 99,
 };

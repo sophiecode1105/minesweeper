@@ -1,16 +1,17 @@
-export interface gametype {
+export interface Game {
   initialized: boolean;
   status: GameStatus;
   difficulty: GameDifficulty;
   board: Board;
   score: number;
   time: number;
+  flags: number;
 }
 
 export interface GameDifficulty {
   name: string;
   values: number[];
-  width: string;
+  flags: number;
 }
 
 export interface DifficultyBoard {
@@ -23,17 +24,18 @@ export interface Board {
   height: number;
   mines: number;
   minesCoordinates: MineCoordinates[];
-  blocks: Blocks[][];
+  blocks: BoardBlock[][];
 }
 
 export type MineCoordinates = number[];
 
-export interface Blocks {
+export interface BoardBlock {
   isMine: boolean;
   row: number;
   col: number;
   surroundingMines: number;
   clicked: boolean;
+  flagged: boolean;
 }
 
 export interface GameStatus {
