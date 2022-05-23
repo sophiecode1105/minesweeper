@@ -3,11 +3,11 @@ import { BoardBlock } from '../types/game';
 import Block from './Block';
 
 const Board = ({
-  blockHandler,
   gameBoard,
+  blockHandler,
 }: {
-  blockHandler: (isMine: boolean, row: number, col: number, isRightClick: boolean) => void;
   gameBoard: BoardBlock[][];
+  blockHandler: (isMine: boolean, row: number, col: number, isRightClick: boolean) => void;
 }) => {
   return (
     <GameBoard>

@@ -64,7 +64,7 @@ export const fillMines = (board: Board): Board => {
   return board;
 };
 
-export function fillNormalBlocks(board: Board): Board {
+export const fillNormalBlocks = (board: Board): Board => {
   let { blocks } = board;
   for (let row = 0; row < blocks.length; row++) {
     for (let col = 0; col < blocks[row].length; col++) {
@@ -87,11 +87,11 @@ export function fillNormalBlocks(board: Board): Board {
     }
   }
   return board;
-}
+};
 
 // 한 블록의 주변 블로들이 지뢰인지 카운티 해주는 헬퍼 함수
 // 최대 8개까지 카운팅
-export function countSurroundingMines(blocks: BoardBlock[][], row: number, col: number): number {
+export const countSurroundingMines = (blocks: BoardBlock[][], row: number, col: number): number => {
   let mines = 0;
   let leftBound = col - 1 < 0 ? undefined : col - 1;
   let rightBound = col + 1 > blocks[row].length - 1 ? undefined : col + 1;
@@ -122,4 +122,4 @@ export function countSurroundingMines(blocks: BoardBlock[][], row: number, col: 
     }
   });
   return mines;
-}
+};

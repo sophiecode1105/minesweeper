@@ -1,11 +1,9 @@
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { resetGame } from '../state/game';
 import { ControlBox, CountBox, ResetButton, TimerBox } from '../style/game';
 import { GameStatus } from '../types/game';
 
 const Display = ({ time, flags, status }: { time: number; flags: number; status: GameStatus }) => {
-  // useEffect(() => {}, [time]);
   const dispatch = useDispatch();
   type CountBoxArr = [string, string, string];
 

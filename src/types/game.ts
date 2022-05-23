@@ -29,6 +29,8 @@ export interface Board {
 
 export type MineCoordinates = number[];
 
+export type BlockCoordinates = [number, number];
+
 export interface BoardBlock {
   isMine: boolean;
   row: number;
